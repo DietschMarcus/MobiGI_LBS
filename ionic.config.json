@@ -1,0 +1,7 @@
+{
+  "name": "MobiGI_LBS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "ionic-angular"
+}
