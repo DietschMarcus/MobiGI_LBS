@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Geolokalisation</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Hier können sie ihre Koordinaten abfragen</h3>
+    <div>
+      <!--lat / long sind die Variablen aus der Funktion und der Click ist die Abfage von diesen.-->
+      <p>Lat: {{lat}}, Long: {{long}}</p>
+      <button (click)=Koordinaten()> Wo befinde ich mich</button>
+    </div>
+</ion-content>

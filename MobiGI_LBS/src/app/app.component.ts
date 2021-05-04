@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+//Abfrage aus Geolokalisation importiert
+import { Abfrage } from '../pages/GL/home';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +24,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'List', component: ListPage },
+      //Seite mit dem Titel hinzugefügt um Lokalisation zu Testen
+      { title: 'Geolokalisation', component: Abfrage },
     ];
 
   }
