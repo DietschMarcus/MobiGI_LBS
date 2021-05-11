@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 //Import von Plugin für Geolokalisation
 import { Geolocation } from '@ionic-native/geolocation';
+// Import für AlertController
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +18,8 @@ export class Abfrage {
 
   //Constructor für die Geolocalisation
   constructor(
-    private geolocation: Geolocation) {}
+    private geolocation: Geolocation,
+    private alertCtrl: AlertController) {}
 
   //Koordinaten ist die Funktion in welche diese Abgefragt werden
   Koordinaten() {
@@ -29,6 +32,16 @@ export class Abfrage {
     }).catch((error) => {
       console.log('Error getting location', error);
     });
+  }
+
+  showPushMeldung() {
+    let alert = this.alertCtrl.create({
+      title: 'Kontakt in der nähe',
+      subTitle: 'Das ist ein Untertitel',
+      message: 'Distanz: 42 Meter',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }
