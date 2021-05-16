@@ -14,6 +14,26 @@ import { Abfrage } from '../pages/GL/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Observable } from 'rxjs/Observable';
+
+import {
+  IMqttMessage,
+  MqttModule,
+  MqttService,
+  IMqttServiceOptions
+} from 'ngx-mqtt';
+
+export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  hostname: 'broker.emqx.io',
+  port: 8083,
+  path: '/mqtt'
+};
+
+export function mqttServiceFactory() {
+  return new MqttService(MQTT_SERVICE_OPTIONS);
+}
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +44,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp), 
+    MqttModule.forRoot({
+      provide: MqttService,
+      useFactory: mqttServiceFactory
+    }),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
