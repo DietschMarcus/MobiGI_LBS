@@ -13,6 +13,11 @@
       <!--lat / long sind die Variablen aus der Funktion und der Click ist die Abfage von diesen.-->
       <p>Lat: {{lat}}, Long: {{long}}</p>
       <button (click)=Koordinaten()> Wo befinde ich mich</button>
+
+      <p>Mqtt Message: {{message}}</p>
+      <p>Distanz zwischen neuestem Gerät und Deinem Standort: {{distance}} Meter</p>
+
       <button (click)=showPushMeldung()> Pushmeldung anzeigen</button>
+
     </div>
 </ion-content>
