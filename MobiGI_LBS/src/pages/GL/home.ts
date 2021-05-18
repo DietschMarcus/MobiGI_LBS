@@ -50,14 +50,16 @@ export class Abfrage {
     // Alle Nachrichten im Topic überwachen und bei neuen Nachrichten anzeigen
     this.subscription = this._mqttService.observe('mobigi/#').subscribe((message: IMqttMessage) => {
       var newLocation = JSON.parse(message.payload.toString());
-      this.message = JSON.stringify(newLocation);
-      this.lat_fremd = newLocation.lat;
-      this.long_fremd = newLocation.long;
-      if (this.lat && this.long) {
-        this.distance = getDistance(
-          { latitude: this.lat, longitude: this.long },
-          { latitude: newLocation.lat, longitude: newLocation.long }
-        );
+      if (newLocation.clientId != this._mqttService.clientId) {
+        this.message = JSON.stringify(newLocation);
+        this.lat_fremd = newLocation.lat;
+        this.long_fremd = newLocation.long;
+        if (this.lat && this.long) {
+          this.distance = getDistance(
+            { latitude: this.lat, longitude: this.long },
+            { latitude: newLocation.lat, longitude: newLocation.long }
+          );
+        }
       }
 
     });
