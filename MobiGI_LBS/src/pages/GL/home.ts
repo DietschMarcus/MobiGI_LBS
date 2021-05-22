@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 //Import von Plugin für Geolokalisation
 import { Geolocation } from '@ionic-native/geolocation';
 
-import { Geofence } from '@ionic-native/geofence';
+// import { Geofence } from '@ionic-native/geofence';
 
 // Import für AlertController
 import { AlertController } from 'ionic-angular';
