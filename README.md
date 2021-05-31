@@ -89,4 +89,3 @@ pushLocation() {
   this._mqttService.unsafePublish(topic, JSON.stringify({ lat: this.lat, long: this.long, clientId: this._mqttService.clientId }));
 }
 ```
-## Geofencing
