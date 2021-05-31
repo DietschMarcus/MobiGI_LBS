@@ -4,7 +4,7 @@ Dies ist der Code welcher im Rahmen einer Projektarbeit im Modul GIT-Mobil_Gi en
 
 
 ## Build APK
-* Mit dem Befehl `ionic capacitor bild android` die Code-Basis in Android-App umwandeln (Android-Studio sollte sich automatisch öffnen)
+* Mit dem Befehl `ionic capacitor build android` die Code-Basis in Android-App umwandeln (Android-Studio sollte sich automatisch öffnen)
 * Für die Kommunikation mit dem MQTT-Broker muss in der Datei AndroidManifest.xml (unter *app/manifests/AndroidManifest.xml*) auf Zeile 12 folgendes ergänzt werden: `android:usesCleartextTraffic="true"`
 * In Android-Studio kann unter *Build > Build Bundle(s) / APK(s)* die APK erstellt werden.
 
@@ -59,7 +59,6 @@ private subscription: Subscription;
     private _mqttService: MqttService,
     private alertCtrl: AlertController) {
 
-
     // Alle Nachrichten im Topic überwachen und bei neuen Nachrichten anzeigen
     this.subscription = this._mqttService.observe('mobigi/#').subscribe((message: IMqttMessage) => {
       var newLocation = JSON.parse(message.payload.toString());
@@ -90,3 +89,4 @@ pushLocation() {
   this._mqttService.unsafePublish(topic, JSON.stringify({ lat: this.lat, long: this.long, clientId: this._mqttService.clientId }));
 }
 ```
+## Geofencing
